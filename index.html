@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Practice</title>
+    <title>Web3 Design Studio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Мій вебпроєкт</h1>
+    <header class="main-header">
+        <div class="main-header__inner d-flex">
+            <img src="assets/images/logo.svg" alt="Web3 Design Studio logo">
+            <nav class="nav">
+                <ul class="nav__list d-flex">
+                    <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Career
+                            <span class="badge d-flex item-center">2</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="menu-btn d-flex">
+                <span class="menu-btn__text">Menu</span>
+                <img src="assets/images/icons/burger-menu.svg" alt="">
+            </button>
+        </div>
     </header>
-    <main>
-        <section>
-            <h2>Головна секція</h2>
-            <p>Це перша сторінка навчального вебпроєкту.</p>
-        </section>
-    </main>
-    <footer>
-        <p>
-            © 2026 Навчальна практика
-        </p>
-    </footer>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+@import url(_variables.css);
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +8,135 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--bg-main);
+    font-family: var(--font-main);
 }
 
 img {
     max-width: 100%;
     display: block;
 }
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.item-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4px 12px 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-strong);
+}
+
+.main-header__inner {
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    display: none;
+    align-self: flex-end;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    position: relative;
+    display: inline-block;
+    padding: 8px 24px;
+}
+
+.nav__link:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: width .3s ease;
+}
+
+.nav__link:hover:after {
+    width: calc(100% - 48px);
+}
+
+.badge {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 17px;
+    height: 17px;
+    font-size: .625rem;
+    font-weight: 700;
+    color: var(--bg-main);
+    background-image: linear-gradient(90deg, #FFFFFF 0%, #C8B9F4 100%);
+    border-radius: 50%;
+}
+
+.menu-btn {
+    gap: 12px;
+}
+
+@media screen and (min-width: 481px) {
+    .main-header {
+        padding: 8px 24px 0;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .nav {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+}
+
+@media screen and (min-width: 1201px) {
+}
+
+/* =======================================================
+   1. ПОЗИЦІОНУВАННЯ: position, z-index, top, right, bottom, left
+   2. БЛОКОВА МОДЕЛЬ: display, flex/grid, justify-content, align-items,
+                      width, height, margin, padding
+   3. ТИПОГРАФІКА:    font-family, font-size, font-weight, line-height,
+                      color, text-align, text-transform
+   4. ВІЗУАЛ:         background, border, border-radius, box-shadow, opacity
+   5. ІНТЕРАКТИВ:     transition, transform, animation, cursor
+   ======================================================= */
