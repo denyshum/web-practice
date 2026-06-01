@@ -1,5 +1,5 @@
 @import url(_variables.css);
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://rsms.me/inter/inter.css');
 
 * {
     margin: 0;
@@ -8,8 +8,9 @@
 }
 
 body {
-    background-color: var(--bg-main);
     font-family: var(--font-main);
+    color: var(--text-main);
+    background-color: var(--bg-main);
 }
 
 img {
@@ -49,18 +50,24 @@ button {
     align-items: center;
 }
 
+.content-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 .main-header {
     position: fixed;
-    top: 0;
+    z-index: 1000;
+    top: 4px;
     left: 0;
     width: 100%;
-    padding: 4px 12px 0;
     font-size: 1.125rem;
     line-height: 1.5;
     color: var(--text-strong);
 }
 
 .main-header__inner {
+    padding: 0 12px;
     height: 60px;
     justify-content: space-between;
     align-items: center;
@@ -69,10 +76,6 @@ button {
 .nav {
     display: none;
     align-self: flex-end;
-}
-
-.nav__item {
-    position: relative;
 }
 
 .nav__link {
@@ -113,9 +116,106 @@ button {
     gap: 12px;
 }
 
+.hero__inner {
+    position: relative;
+    height: calc(100dvh - 64px);
+    margin-top: 64px;
+    padding: 0 24px 20px;
+}
+
+.hero__content {
+    z-index: 100;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: calc(50dvh - 64px);
+}
+
+.hero__title {
+    font-size: 11vw;
+    font-weight: 500;
+    line-height: 11.6vw;
+    color: var(--text-strong);
+}
+
+.hero__line {
+    display: block;
+}
+
+.hero__title .hero__line--small-indent {
+    margin-left: 8vw;
+}
+
+.hero__title .hero__line--medium-indent {
+    margin-left: 16vw;
+}
+
+.hero__title .hero__line--large-indent {
+    margin-left: 32vw;
+}
+
+.hero__scroll-block {
+    align-items: center;
+    gap: 20px;
+}
+
+.hero__scroll-link {
+    display: block;
+    flex-shrink: 0;
+    width: 40px;
+    height: 39px;
+    background-image: url(../images/icons/arrow-down.svg);
+}
+
+.hero__desc {
+    max-width: 342px;
+    font-size: .9rem;
+    line-height: 1.875rem;
+}
+
+.hero__image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1008px;
+    height: calc(50dvh - 64px);
+    max-height: 946px;
+    background-image: url(../images/hero-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 @media screen and (min-width: 481px) {
     .main-header {
-        padding: 8px 24px 0;
+        top: 8px;
+    }
+
+    .main-header__inner {
+        padding: 0 24px;
+    }
+
+    .hero__inner {
+        height: calc(100dvh - 68px);
+        margin-top: 68px;
+    }
+
+    .hero__content {
+        margin-top: calc(60dvh - 68px);
+    }
+
+    .hero__title {
+        font-size: 8.5vw;
+        line-height: 9.1vw;
+    }
+
+    .hero__desc {
+        font-size: 1rem;
+    }
+
+    .hero__image-bg {
+        height: calc(75dvh - 68px);
+        background-size: contain;
     }
 }
 
@@ -123,12 +223,71 @@ button {
     .nav {
         display: block;
     }
+
+    .hero__inner {
+        padding: 0 0 42px;
+    }
+
+    .hero__content {
+        width: 55%;
+        margin-top: 0;
+    }
+
+    .hero__title {
+        margin: 23dvh 0 17dvh;
+        font-size: 6.583333vw;
+        line-height: 7.2vw;
+    }
+
+    .hero__scroll-block {
+        margin-left: 24px;
+    }
+
+    .hero__image-bg {
+        left: auto;
+        right: 0;
+        width: 70vw;
+        height: 100dvh;
+    }
 }
 
 @media screen and (min-width: 1025px) {
+    .hero__scroll-block {
+        gap: 51px;
+    }
+
+    .hero__desc {
+        font-size: 1.1875rem;
+    }
+
+    .hero__image-bg {
+        margin-top: 31px;
+    }
 }
 
 @media screen and (min-width: 1201px) {
+    .hero__image-bg {
+        margin-top: 62px;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .hero__title {
+        font-size: 5.925rem;
+        line-height: 6.48rem;
+    }
+
+    .hero__title .hero__line--small-indent {
+        margin-left: 116px;
+    }
+
+    .hero__title .hero__line--medium-indent {
+        margin-left: 230px;
+    }
+
+    .hero__title .hero__line--large-indent {
+        margin-left: 460px;
+    }
 }
 
 /* =======================================================
