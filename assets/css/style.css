@@ -186,6 +186,25 @@ button {
     background-size: cover;
 }
 
+.logo-strip__inner {
+    padding: 48px 37px;
+}
+
+.logo-strip__label {
+    margin-bottom: 16px;
+    font-size: .9rem;
+    line-height: 1.875rem;
+}
+
+.logo-strip__list {
+    flex-direction: column;
+    gap: 40px;
+}
+
+.logo-strip__logo {
+    max-height: 80px;
+}
+
 @media screen and (min-width: 481px) {
     .main-header {
         top: 8px;
@@ -216,6 +235,19 @@ button {
     .hero__image-bg {
         height: calc(75dvh - 68px);
         background-size: contain;
+    }
+
+    .logo-strip__label {
+        font-size: 1rem;
+    }
+
+    .logo-strip__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .logo-strip__item {
+        width: calc(50% - 20px);
     }
 }
 
@@ -249,6 +281,22 @@ button {
         width: 70vw;
         height: 100dvh;
     }
+
+    .logo-strip__label {
+        margin-left: 20px;
+    }
+
+    .logo-strip__list {
+        padding: 0 20px;
+    }
+
+    .logo-strip__item {
+        width: calc(25% - 30px);
+    }
+
+    .logo-strip__logo {
+        max-height: none;
+    }
 }
 
 @media screen and (min-width: 1025px) {
@@ -263,11 +311,32 @@ button {
     .hero__image-bg {
         margin-top: 31px;
     }
+
+    .logo-strip__inner {
+        padding: 97px 75px;
+    }
+
+    .logo-strip__label {
+        margin-left: 40px;
+        font-size: 1.1875rem;
+    }
+
+    .logo-strip__list {
+        padding: 0 40px;
+    }
 }
 
 @media screen and (min-width: 1201px) {
     .hero__image-bg {
         margin-top: 62px;
+    }
+
+    .logo-strip__list {
+        gap: 80px;
+    }
+
+    .logo-strip__item {
+        width: calc(25% - 60px);
     }
 }
 
