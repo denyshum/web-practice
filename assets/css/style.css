@@ -55,6 +55,18 @@ button {
     margin: 0 auto;
 }
 
+.text-sm {
+    font-size: .9rem;
+    line-height: 1.58;
+}
+
+.glow {
+    position: absolute;
+    width: 830px;
+    height: 1009px;
+    background-image: url(../images/gradient-blur.png);
+}
+
 .main-header {
     position: fixed;
     z-index: 1000;
@@ -168,8 +180,6 @@ button {
 
 .hero__desc {
     max-width: 342px;
-    font-size: .9rem;
-    line-height: 1.875rem;
 }
 
 .hero__image-bg {
@@ -192,8 +202,6 @@ button {
 
 .logo-strip__label {
     margin-bottom: 16px;
-    font-size: .9rem;
-    line-height: 1.875rem;
 }
 
 .logo-strip__list {
@@ -205,7 +213,38 @@ button {
     max-height: 80px;
 }
 
+.text-media {
+    position: relative;
+    overflow: hidden;
+}
+
+.text-media__inner {
+    flex-direction: column;
+    padding: 64px 32px;
+}
+
+.text-media__content {
+    margin-bottom: 60px;
+}
+
+.text-media__title {
+    margin-bottom: 16px;
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.27;
+    color: var(--text-strong);
+}
+
+.text-media .glow {
+    top: -120px;
+    right: -530px;
+}
+
 @media screen and (min-width: 481px) {
+    .text-sm {
+        font-size: 1rem;
+    }
+
     .main-header {
         top: 8px;
     }
@@ -228,17 +267,9 @@ button {
         line-height: 9.1vw;
     }
 
-    .hero__desc {
-        font-size: 1rem;
-    }
-
     .hero__image-bg {
         height: calc(75dvh - 68px);
         background-size: contain;
-    }
-
-    .logo-strip__label {
-        font-size: 1rem;
     }
 
     .logo-strip__list {
@@ -248,6 +279,10 @@ button {
 
     .logo-strip__item {
         width: calc(50% - 20px);
+    }
+
+    .text-media__title {
+        font-size: 1.875rem;
     }
 }
 
@@ -297,15 +332,31 @@ button {
     .logo-strip__logo {
         max-height: none;
     }
+
+    .text-media__inner {
+        flex-direction: row;
+        padding: 128px 0;
+    }
+
+    .text-media__content {
+        width: 50%;
+        margin: 0;
+        padding: 0 33px 16px 57px;
+    }
+
+    .text-media__media {
+        width: 50%;
+        padding: 0 32px;
+    }
 }
 
 @media screen and (min-width: 1025px) {
-    .hero__scroll-block {
-        gap: 51px;
+    .text-sm {
+        font-size: 1.1875rem;
     }
 
-    .hero__desc {
-        font-size: 1.1875rem;
+    .hero__scroll-block {
+        gap: 51px;
     }
 
     .hero__image-bg {
@@ -318,11 +369,23 @@ button {
 
     .logo-strip__label {
         margin-left: 40px;
-        font-size: 1.1875rem;
     }
 
     .logo-strip__list {
         padding: 0 40px;
+    }
+
+    .text-media__content {
+        padding: 0 66px 16px 115px;
+    }
+
+    .text-media__title {
+        margin-bottom: 36px;
+        font-size: 2.125rem;
+    }
+
+    .text-media__media {
+        padding: 0 64px;
     }
 }
 
@@ -337,6 +400,10 @@ button {
 
     .logo-strip__item {
         width: calc(25% - 60px);
+    }
+
+    .text-media__inner {
+        padding: 288px 0;
     }
 }
 
