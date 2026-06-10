@@ -76,13 +76,13 @@ button {
 }
 
 .decor-shapes {
-    height: 355px;
-    padding: 45px 0 60px;
+    height: 250px;
+    margin-top: 45px;
+    margin-bottom: 45px;
     background-image: url(../images/geometric-pattern.svg);
     background-repeat: no-repeat;
     background-position: left center;
-    background-size: cover;
-    background-origin: content-box;
+    background-size: auto 100%;
 }
 
 .main-header {
@@ -410,9 +410,9 @@ button {
     padding: 0 32px;
 }
 
-.services__title {
+.services__inner .services__title {
     max-width: 680px;
-    line-height: 1.035;
+    line-height: 1.063;
 }
 
 .services__body {
@@ -436,9 +436,9 @@ button {
     top: 0;
     bottom: 0;
     left: -20px;
-    margin: auto;
     width: 8px;
     height: 8px;
+    margin: auto;
     background-color: var(--text-strong);
     border-radius: 50%;
 }
@@ -452,15 +452,16 @@ button {
     gap: 16px;
 }
 
-.services__desc {
-    color: var(--text-strong);
-}
-
 .services__content {
     flex-direction: column;
     gap: 12px;
     font-size: 1.25rem;
     line-height: 1.23;
+}
+
+
+.services__desc {
+    color: var(--text-strong);
 }
 
 .services__tags {
@@ -552,6 +553,10 @@ button {
     .slider__controls {
         display: flex;
     }
+    
+    .services__inner {
+        padding: 25px 32px 0;
+    }
 
     .services__list {
         font-size: 1.75rem;
@@ -569,8 +574,11 @@ button {
     }
     
     .decor-shapes {
-        height: 460px;
-        padding: 90px 0 120px;
+        height: 0;
+        margin-top: 91px;
+        margin-bottom: 91px;
+        padding-bottom: 27.9%;
+        background-size: 100% 100%;
     }
     
     .nav {
@@ -678,19 +686,19 @@ button {
     }
 
     .services__inner {
-        margin-bottom: 57px;
+        margin-bottom: 87px;
         padding: 25px 0 0;
     }
 
-    .services__title {
+    .services__inner .services__title {
         margin-left: 34px;
         margin-bottom: 50px;
     }
 
     .services__body {
-        padding: 0 57px;
         flex-direction: row;
         gap: 16px;
+        padding: 0 57px;
     }
 
     .services__list {
@@ -702,18 +710,19 @@ button {
     }
 
     .services__panel {
-        padding: 20px 0;
-        width: calc(66.666667% - 8px);
         flex-direction: row;
         gap: 40px;
+        width: calc(66.666667% - 8px);
+        padding: 20px 0;
     }
     
     .services__img {
-        width: calc(40% - 20px);
+        width: calc(45% - 20px);
     }
 
     .services__content {
         gap: 20px;
+        width: calc(55% - 20px);
         font-size: 1.375rem;
     }
 }
@@ -775,6 +784,31 @@ button {
     .slider__bottom {
         padding-top: 24px;
     }
+    
+    .services__inner {
+        padding-top: 75px;
+    }
+
+    .services__inner .services__title {
+        margin-left: 67px;
+        margin-bottom: 75px;
+    }
+    
+    .services__body {
+        padding: 0 115px;
+    }
+    
+    .services__item {
+        padding: 16px 0;
+    }
+    
+    .services__panel {
+        align-items: flex-start;
+    }
+    
+    .services__content {
+        padding-bottom: 16px;
+    }
 }
 
 @media screen and (min-width: 1201px) {
@@ -806,9 +840,41 @@ button {
     .slider__inner {
         margin-bottom: 115px;
     }
+    
+    .services__inner {
+        margin-bottom: 173px;
+        padding-top: 111px;
+    }
+    
+    .services__inner .services__title {
+        margin-bottom: 103px;
+    }
+    
+    .services__list {
+        font-size: 2.25rem;
+    }
+    
+    .services__panel {
+        gap: 80px;
+    }
+    
+    .services__img {
+        width: calc(45% - 40px);
+    }
+    
+    .services__content {
+        gap: 40px;
+        width: calc(55% - 40px);
+        font-size: 1.625rem;
+    }
 }
 
 @media screen and (min-width: 1441px) {
+    .decor-shapes {
+        height: 402px;
+        padding-bottom: 0;
+    }
+    
     .hero__title {
         font-size: 5.925rem;
         line-height: 6.48rem;
