@@ -85,6 +85,12 @@ button {
     background-size: auto 100%;
 }
 
+.decor-shape {
+    position: absolute;
+    display: none;
+    background-size: contain;
+}
+
 .main-header {
     position: fixed;
     z-index: 1000;
@@ -468,6 +474,51 @@ button {
     margin-left: 20px;
 }
 
+.about {
+    position: relative;
+}
+
+.about__inner {
+    position: relative;
+    padding: 32px;
+}
+
+.about__content {
+    font-size: 1.25rem;
+}
+
+.about__desc {
+    margin-bottom: 16px;
+    line-height: 1.38;
+}
+
+.about__link {
+    position: relative;
+    display: inline-block;
+    line-height: 1.5;
+    color: var(--text-strong);
+}
+
+.about__link:after {
+    content: "";
+    position: absolute;
+    right: -41px;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/icons/arrow-right.svg);
+    background-size: contain;
+    transition: right .3s ease;
+}
+
+.about__link:hover:after {
+    right: -53px;
+}
+
+.about__photo {
+    position: absolute;
+    display: none;
+}
+
 @media screen and (min-width: 481px) {
     .text-sm {
         font-size: 1rem;
@@ -579,6 +630,28 @@ button {
         margin-bottom: 91px;
         padding-bottom: 27.9%;
         background-size: 100% 100%;
+    }
+    
+    .decor-shape {
+        display: block;
+    }
+
+    .decor-shape--triangle {
+        width: 19.86vw;
+        height: 19.93vw;
+        background-image: url(../images/about-shape-1.svg);
+    }
+
+    .decor-shape--arc {
+        width: 19.93vw;
+        height: 19.93vw;
+        background-image: url(../images/about-shape-2.svg);
+    }
+
+    .decor-shape--square {
+        width: 28.75vw;
+        height: 28.75vw;
+        background-image: url(../images/about-shape-3.svg);
     }
     
     .nav {
@@ -725,6 +798,75 @@ button {
         width: calc(55% - 20px);
         font-size: 1.375rem;
     }
+    
+    .about__inner {
+        min-height: 625px;
+        margin-bottom: 87px;
+        padding: 87px 0 0;
+    }
+    
+    .about__content {
+        max-width: 43%;
+        margin: 0 25% 0 32%;
+        font-size: 1.375rem;
+    }
+    
+    .about__inner .about__title {
+        margin-bottom: 8px;
+    }
+    
+    .about__desc {
+        margin-bottom: 20px;
+    }
+    
+    .about__link:after {
+        top: -3px;
+        right: -50px;
+        width: 39px;
+        height: 40px;
+    }
+    
+    .about__link:hover:after {
+        right: -62px;
+    }
+    
+    .about__photo {
+        z-index: 100;
+        display: block;
+    }
+    
+    .about__photo--1 {
+        top: 87px;
+        left: 7.98vw;
+        max-width: 15.98%;
+    }
+    
+    .about__photo--2 {
+        top: 290px;
+        right: 7.98vw;
+        max-width: 15.98%;
+    }
+    
+    .about__photo--3 {
+        bottom: 0;
+        left: 32vw;
+        max-width: 20%;
+    }
+    
+    .about .decor-shape--triangle {
+        top: 0;
+        right: 7.98vw;
+    }
+    
+    .about .decor-shape--arc {
+        right: 1.66vw;
+        bottom: 16px;
+    }
+    
+    .about .decor-shape--square {
+        bottom: 8px;
+        left: -25.55vw;
+    }
 }
 
 @media screen and (min-width: 1025px) {
@@ -809,6 +951,19 @@ button {
     .services__content {
         padding-bottom: 16px;
     }
+    
+    .about__inner {
+        min-height: 700px;
+    }
+    
+    .about__link {
+        padding-top: 13px;
+    }
+    
+    .about__link:after {
+        top: auto;
+        bottom: 2px;
+    }
 }
 
 @media screen and (min-width: 1201px) {
@@ -867,12 +1022,53 @@ button {
         width: calc(55% - 40px);
         font-size: 1.625rem;
     }
+    
+    .about__inner {
+        min-height: 872px;
+        margin-bottom: 166px;
+        padding: 173px 0 0;
+    }
+    
+    .about__content {
+        font-size: 1.625rem;
+    }
+    
+    .about__photo--1 {
+        top: 173px;
+    }
+    
+    .about__photo--2 {
+        top: 408px;
+    }
+    
+    .about .decor-shape--arc {
+        bottom: 23px;
+    }
+    
+    .about .decor-shape--square {
+        bottom: 15px;
+    }
 }
 
 @media screen and (min-width: 1441px) {
     .decor-shapes {
         height: 402px;
         padding-bottom: 0;
+    }
+
+    .decor-shape--triangle {
+        width: 286px;
+        height: 287px;
+    }
+
+    .decor-shape--arc {
+        width: 287px;
+        height: 287px;
+    }
+
+    .decor-shape--square {
+        width: 414px;
+        height: 414px;
     }
     
     .hero__title {
@@ -890,6 +1086,30 @@ button {
 
     .hero__title .hero__line--large-indent {
         margin-left: 460px;
+    }
+
+    .about__photo--1 {
+        left: 115px;
+    }
+
+    .about__photo--2 {
+        right: 115px;
+    }
+
+    .about__photo--3 {
+        left: 461px;
+    }
+
+    .about .decor-shape--triangle {
+        right: calc(50% - 720px + 115px);
+    }
+
+    .about .decor-shape--arc {
+        right: calc(50% - 720px + 24px);
+    }
+
+    .about .decor-shape--square {
+        left: calc(50% - 720px - 368px);
     }
 }
 
