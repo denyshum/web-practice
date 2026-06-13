@@ -11,7 +11,7 @@
     <header class="main-header">
         <div class="main-header__inner d-flex content-wrap">
             <img src="assets/images/logo.svg" alt="Web3 Design Studio logo">
-            <nav class="nav">
+            <nav id="main-header__nav" class="nav">
                 <ul class="nav__list d-flex">
                     <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
                     <li class="nav__item"><a href="#" class="nav__link">About</a></li>
@@ -24,10 +24,54 @@
                     </li>
                 </ul>
             </nav>
-            <button class="menu-btn d-flex">
-                <span class="menu-btn__text">Menu</span>
-                <img src="assets/images/icons/burger-menu.svg" alt="">
+            <button id="menu-btn" class="menu-btn d-flex">
+                <span id="menu-btn__text" class="menu-btn__text">Menu</span>
+                <img src="assets/images/icons/burger-menu.svg" alt="" id="menu-btn__img">
             </button>
+        </div>
+        <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-overlay__inner d-flex content-wrap">
+                <nav class="menu-overlay__nav d-flex">
+                    <ul class="menu-overlay__list d-flex item-center">
+                        <li class="menu-overlay__item">
+                            <a href="#" class="menu-overlay__link">Home</a>
+                        </li>
+                        <li class="menu-overlay__item">
+                            <a href="#" class="menu-overlay__link">About</a>
+                        </li>
+                        <li class="menu-overlay__item">
+                            <a href="#" class="menu-overlay__link">Contact</a>
+                        </li>
+                        <li class="menu-overlay__item">
+                            <a href="#" class="menu-overlay__link">
+                                Career
+                                <span class="badge d-flex item-center">2</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="mailto:hello@thirdweb.studio" class="menu-overlay__email link-arrow">hello@thirdweb.studio</a>
+                </nav>
+                <div class="menu-overlay__info d-flex">
+                    <div class="menu-overlay__col">
+                        <p class="menu-overlay__col-title">Our projects</p>
+                        <ul class="menu-overlay__col-list">
+                            <li><a href="#" class="menu-overlay__col-link">WingRiders</a></li>
+                            <li><a href="#" class="menu-overlay__col-link">Trackee</a></li>
+                            <li><a href="#" class="menu-overlay__col-link">Worldcoin</a></li>
+                            <li><a href="#" class="menu-overlay__col-link">Audience+</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-overlay__col">
+                        <p class="menu-overlay__col-title">Follow us</p>
+                        <ul class="menu-overlay__col-list">
+                            <li><a href="#" class="menu-overlay__col-link">Facebook</a></li>
+                            <li><a href="#" class="menu-overlay__col-link">Instagram</a></li>
+                            <li><a href="#" class="menu-overlay__col-link">Dribbble</a></li>
+                            <li><a href="#" class="menu-overlay__col-link">Linkedin+</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <main>
