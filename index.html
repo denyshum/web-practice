@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web3 Design Studio</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -158,37 +159,14 @@
         <section class="slider">
             <div class="slider__inner content-wrap">
                 <h2 class="slider__title title-display">Other projects</h2>
-                <ul class="slider__list d-flex">
-                    <li class="slider__item">
-                        <a href="#">
-                            <img src="assets/images/projects/other-project-1.jpg" alt="Investment app - mobile design" class="slider__img">
-                        </a>
-                    </li>
-                    <li class="slider__item">
-                        <a href="#">
-                            <img src="assets/images/projects/other-project-2.jpg" alt="Investment app - desktop design" class="slider__img">
-                        </a>
-                    </li>
-                    <li class="slider__item">
-                        <a href="#">
-                            <img src="assets/images/projects/other-project-3.jpg" alt="Corporate card landing page design" class="slider__img">
-                        </a>
-                    </li>
-                </ul>
+                <div class="swiper slider__swiper">
+                    <ul class="swiper-wrapper slider__list"></ul>
+                </div>
                 <div class="slider__bottom d-flex">
-                    <ul class="slider__indicators d-flex">
-                        <li class="slider__indicator slider__indicator--active"></li>
-                        <li class="slider__indicator"></li>
-                        <li class="slider__indicator"></li>
-                        <li class="slider__indicator"></li>
-                        <li class="slider__indicator"></li>
-                        <li class="slider__indicator"></li>
-                        <li class="slider__indicator"></li>
-                        <li class="slider__indicator"></li>
-                    </ul>
+                    <ul id="slider__indicators" class="slider__indicators d-flex"></ul>
                     <div class="slider__controls">
-                        <button class="slider__btn slider__btn--prev"></button>
-                        <button class="slider__btn slider__btn--next"></button>
+                        <button id="slider__btn--prev" class="slider__btn slider__btn--prev"></button>
+                        <button id="slider__btn--next" class="slider__btn slider__btn--next"></button>
                     </div>
                 </div>
             </div>
@@ -281,6 +259,7 @@
             <div class="main-footer__circle main-footer__circle--purple"></div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
