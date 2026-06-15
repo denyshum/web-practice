@@ -108,3 +108,16 @@ menuBtn.addEventListener("click", () => {
         }
     });
 })();
+
+// Зміна фону шапки при скролі
+const header = document.querySelector('.main-header');
+
+if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            header.classList.add('main-header--scrolled');
+        } else {
+            header.classList.remove('main-header--scrolled');
+        }
+    });
+}

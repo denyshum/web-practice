@@ -122,6 +122,16 @@ button {
     font-size: 1.125rem;
     line-height: 1.5;
     color: var(--text-strong);
+    transition-property: top, background-color, backdrop-filter, box-shadow;
+    transition-duration: .4s;
+    transition-timing-function: ease;
+}
+
+.main-header.main-header--scrolled {
+    top: 0;
+    background-color: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
 }
 
 .main-header__inner {
@@ -197,6 +207,10 @@ button {
     flex-direction: column;
     height: 100%;
     padding: 64px 32px;
+}
+
+.main-header--scrolled .menu-overlay__inner {
+    padding-top: 60px;
 }
 
 .menu-overlay__nav {
