@@ -7,17 +7,40 @@ const menuBtnImg = document.getElementById("menu-btn__img");
 const body = document.body;
 
 menuBtn.addEventListener("click", () => {
-    const isOpen = menuOverlay.classList.toggle("menu-overlay--open");
-    body.classList.toggle("no-scroll");
+    // Визначаємо поточний стан меню
+    const isOpen = menuOverlay.classList.contains("menu-overlay--open");
 
-    if (isOpen) {
-        mainHeaderNav.style.display = "none";
-        menuBtnText.textContent = "Close";
-        menuBtnImg.src = "assets/images/icons/close.svg"
+    // Запускаємо анімацію зникнення кнопки для плавної підміни контенту
+    menuBtn.classList.add("menu-btn--hidden");
+
+    if (!isOpen) {
+        // Відкриття меню
+        menuOverlay.classList.add("menu-overlay--open");
+        body.classList.add("no-scroll"); // Блокуємо прокрутку сторінки
+
+        // Приховуємо основну навігацію в шапці
+        mainHeaderNav.classList.add("nav--hidden");
+
+        // Оновлюємо текст/іконку та повертаємо кнопку після завершення fade-out (200мс)
+        setTimeout(() => {
+            menuBtnText.textContent = "Close";
+            menuBtnImg.src = "assets/images/icons/close.svg";
+            menuBtn.classList.remove("menu-btn--hidden");
+        }, 200);
     } else {
-        mainHeaderNav.style.display = "";
-        menuBtnText.textContent = "Menu";
-        menuBtnImg.src = "assets/images/icons/burger-menu.svg"
+        // Закриття меню
+        menuOverlay.classList.remove("menu-overlay--open");
+        body.classList.remove("no-scroll");
+
+        // Повертаємо основну навігацію в шапці
+        mainHeaderNav.classList.remove("nav--hidden");
+
+        // Відновлюємо початковий текст/іконку та повертаємо кнопку після затримки (200мс)
+        setTimeout(() => {
+            menuBtnText.textContent = "Menu";
+            menuBtnImg.src = "assets/images/icons/burger-menu.svg";
+            menuBtn.classList.remove("menu-btn--hidden");
+        }, 200);
     }
 });
 
@@ -119,5 +142,154 @@ if (header) {
         } else {
             header.classList.remove('main-header--scrolled');
         }
+    });
+}
+
+// Приховування блоку "scroll down", коли видно блок з логотипами
+const scrollBlock = document.querySelector('.hero__scroll-block');
+const logoStrip = document.querySelector('.logo-strip__inner');
+
+if (scrollBlock && logoStrip) {
+    // IntersectionObserver відстежує, коли елемент (логотипи) потрапляє у видиму зону екрана
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // entry.boundingClientRect.top < 0 означає, що ми проскролили нижче блоку з логотипами
+            // isIntersecting стає true, коли видно заданий відсоток блоку (threshold)
+            if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+                scrollBlock.classList.add('hero__scroll-block--hidden'); // Ховаємо блок
+            } else {
+                scrollBlock.classList.remove('hero__scroll-block--hidden'); // Показуємо знову
+            }
+        });
+    }, {
+        // Спрацює, коли 80% блоку логотипів з'явиться у вікні браузера
+        threshold: 0.8
+    });
+
+    // Вказуємо обзерверу, за яким саме елементом стежити
+    observer.observe(logoStrip);
+}
+
+// Кнопка "Back to top"
+const scrollTopBtn = document.querySelector('.main-footer__scroll-top');
+
+if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+        const startPosition = window.scrollY; // Поточна позиція
+        const distance = -startPosition; // Відстань до нуля
+        const duration = 1200; // Час анімації (мс)
+        let start = null;
+
+        function animation(currentTime) {
+            if (start === null) {
+                start = currentTime;
+            }
+
+            const timeElapsed = currentTime - start;
+
+            // Розрахунок прогресу (від 0 до 1)
+            const progress = Math.min(timeElapsed / duration, 1);
+
+            // Формула плавності (ease-in-out)
+            const ease = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+            window.scrollTo(0, startPosition + distance * ease);
+
+            // Продовжуємо, поки не вийде час
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        requestAnimationFrame(animation);
+    });
+}
+
+// Паралакс-ефект для фотографій у секції About
+const aboutSection = document.querySelector('.about');
+const aboutPhotos = document.querySelectorAll('.about__photo');
+
+if (aboutSection && aboutPhotos.length > 0) {
+    window.addEventListener('scroll', () => {
+        // Отримуємо координати секції відносно вікна перегляду
+        const rect = aboutSection.getBoundingClientRect();
+
+        // Виконуємо розрахунки лише тоді, коли секція перебуває у видимій зоні
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            // Відстань у пікселях від моменту появи секції на екрані
+            const scrolled = window.innerHeight - rect.top;
+
+            // Адаптивна швидкість для третього фото
+            const thirdPhotoSpeed = window.innerWidth < 1200 ? -0.02 : -0.05;
+
+            // Коефіцієнти швидкості: додатні значення — рух вниз, від'ємні — рух вгору
+            const speeds = [
+                0.20,  // Фото 1 (Верхнє ліве)
+                0.10,  // Фото 2 (Праве)
+                thirdPhotoSpeed  // Фото 3 (Нижнє)
+            ];
+
+            // Застосовуємо зміщення по осі Y для кожної фотографії
+            aboutPhotos.forEach((photo, index) => {
+                const speed = speeds[index];
+                if (speed !== undefined) {
+                    photo.style.transform = `translateY(${scrolled * speed}px)`;
+                }
+            });
+        }
+    });
+}
+
+// Перемикач вкладок у секції Services з послідовною анімацією
+const tabItems = document.querySelectorAll('.services__item');
+const tabPanels = document.querySelectorAll('.services__panel');
+
+let isAnimating = false; // Блокування для запобігання накладанню анімацій при швидких кліках
+const animationDuration = 350; // Тривалість анімації (має відповідати значенню transition в CSS)
+
+if (tabItems.length > 0 && tabPanels.length > 0) {
+    tabItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            // Перериваємо виконання, якщо анімація ще триває або обрана вже активна вкладка
+            if (isAnimating || item.classList.contains('services__item--active')) return;
+
+            isAnimating = true; // Вмикаємо стан анімації
+
+            const currentActiveItem = document.querySelector('.services__item--active');
+            const currentActivePanel = document.querySelector('.services__panel--visible');
+            const newPanel = tabPanels[index];
+
+            // Оновлюємо активний стан пунктів меню
+            if (currentActiveItem) {
+                currentActiveItem.classList.remove('services__item--active');
+            }
+            item.classList.add('services__item--active');
+
+            // Запускаємо зникнення поточної панелі
+            if (currentActivePanel) {
+                currentActivePanel.classList.remove('services__panel--visible');
+
+                // Очікуємо завершення анімації зникнення
+                setTimeout(() => {
+                    // Приховуємо стару панель (display: none)
+                    currentActivePanel.classList.remove('services__panel--active');
+
+                    // Додаємо нову панель у потік документа (display: flex, opacity: 0)
+                    newPanel.classList.add('services__panel--active');
+
+                    // Мікро-затримка (20мс) для коректного відпрацювання transition браузером
+                    setTimeout(() => {
+                        // Запускаємо появу нової панелі
+                        newPanel.classList.add('services__panel--visible');
+
+                        // Знімаємо блокування після повного завершення анімації
+                        setTimeout(() => {
+                            isAnimating = false;
+                        }, animationDuration);
+
+                    }, 20);
+                }, animationDuration);
+            }
+        });
     });
 }

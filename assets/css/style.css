@@ -61,6 +61,7 @@ button {
     width: 830px;
     height: 1009px;
     background-image: url(../images/gradient-blur.png);
+    pointer-events: none;
 }
 
 .title-display {
@@ -146,6 +147,12 @@ button {
 .nav {
     display: none;
     align-self: flex-end;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.nav.nav--hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .nav__link {
@@ -184,6 +191,12 @@ button {
 
 .menu-btn {
     gap: 12px;
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.menu-btn.menu-btn--hidden {
+    opacity: 0;
+    transform: scale(.9);
 }
 
 .menu-overlay {
@@ -317,6 +330,12 @@ button {
 .hero__scroll-block {
     align-items: center;
     gap: 20px;
+    transition: opacity .4s ease, visibility .4s ease;
+}
+
+.hero__scroll-block--hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .hero__scroll-link {
@@ -553,12 +572,12 @@ button {
     line-height: 1.5;
 }
 
-.services__item--active {
+.services__item {
     position: relative;
-    color: var(--text-strong);
+    transition: color .3s ease;
 }
 
-.services__item--active:before {
+.services__item:before {
     content: "";
     position: absolute;
     top: 0;
@@ -569,6 +588,18 @@ button {
     margin: auto;
     background-color: var(--text-strong);
     border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity .3s ease;
+}
+
+.services__item--active {
+    color: var(--text-strong);
+}
+
+.services__item--active:before {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .services__btn {
@@ -576,8 +607,19 @@ button {
 }
 
 .services__panel {
+    display: none;
     flex-direction: column;
     gap: 16px;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.services__panel.services__panel--active {
+    display: flex;
+}
+
+.services__panel.services__panel--visible {
+    opacity: 1;
 }
 
 .services__content {
