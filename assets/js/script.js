@@ -175,6 +175,8 @@ const scrollTopBtn = document.querySelector('.main-footer__scroll-top');
 
 if (scrollTopBtn) {
     scrollTopBtn.addEventListener('click', () => {
+        document.documentElement.style.scrollBehavior = 'auto';
+
         const startPosition = window.scrollY; // Поточна позиція
         const distance = -startPosition; // Відстань до нуля
         const duration = 1200; // Час анімації (мс)
@@ -198,6 +200,8 @@ if (scrollTopBtn) {
             // Продовжуємо, поки не вийде час
             if (timeElapsed < duration) {
                 requestAnimationFrame(animation);
+            } else {
+                document.documentElement.style.scrollBehavior = 'smooth';
             }
         }
 
