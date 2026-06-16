@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-main);
     color: var(--text-main);
@@ -362,6 +366,10 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#backers {
+    scroll-margin-top: 60px;
 }
 
 .logo-strip__inner {
